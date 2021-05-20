@@ -167,6 +167,9 @@ public class MainFrame extends JFrame implements AlgorithmListener {
                 return;
             }
 
+            warehouse.setNumColsPer(Double.parseDouble(panelParameters.jTextFieldNumCutsPer.getText()));
+            warehouse.setMaxSizePer(Double.parseDouble(panelParameters.jTextFieldMaxSizePer.getText()));
+
             bestIndividualPanel.textArea.setText("");
             seriesBestIndividual.clear();
             seriesAverage.clear();
@@ -442,6 +445,8 @@ class PanelParameters extends PanelAtributesValue {
     public static final String TOURNAMENT_SIZE = "2";
     public static final String PROB_RECOMBINATION = "0.7";
     public static final String PROB_MUTATION = "0.1";
+    public static final String NUM_CUTS_PER = "0.7";
+    public static final String MAX_SIZE_PER = "0.3";
     JTextField jTextFieldSeed = new JTextField(SEED, TEXT_FIELD_LENGHT);
     JTextField jTextFieldN = new JTextField(POPULATION_SIZE, TEXT_FIELD_LENGHT);
     JTextField jTextFieldGenerations = new JTextField(GENERATIONS, TEXT_FIELD_LENGHT);
@@ -456,6 +461,8 @@ class PanelParameters extends PanelAtributesValue {
     JTextField jTextFieldProbMutation = new JTextField(PROB_MUTATION, TEXT_FIELD_LENGHT);
     String[] algorithms = {"GA", "Random"};
     JComboBox jComboBoxAlgorithms = new JComboBox(algorithms);
+    JTextField jTextFieldNumCutsPer = new JTextField(NUM_CUTS_PER, TEXT_FIELD_LENGHT);
+    JTextField jTextFieldMaxSizePer = new JTextField(MAX_SIZE_PER, TEXT_FIELD_LENGHT);
 
     public PanelParameters() {
         title = "Genetic algorithm parameters";
@@ -494,6 +501,12 @@ class PanelParameters extends PanelAtributesValue {
 
         labels.add(new JLabel("Algorithms: "));
         valueComponents.add(jComboBoxAlgorithms);
+
+        labels.add(new JLabel("N_Cuts per.: "));
+        valueComponents.add(jTextFieldNumCutsPer);
+
+        labels.add(new JLabel("Max Columns per.: "));
+        valueComponents.add(jTextFieldMaxSizePer);
 
         configure();
     }

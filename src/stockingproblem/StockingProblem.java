@@ -9,6 +9,8 @@ import java.util.ArrayList;
 public class StockingProblem implements Problem<StockingProblemIndividual> {
     private int materialHeight;
     private int materialWidth;
+    private double NumColsPer;
+    private double MaxSizePer;
     private ArrayList<Item> items;
 
     public StockingProblem(int materialHeight, ArrayList<Item> items) {
@@ -28,11 +30,28 @@ public class StockingProblem implements Problem<StockingProblemIndividual> {
         return new StockingProblemIndividual(this, items.size() - 1);
     }
 
+    public void setNumColsPer(double numColsPer) {
+        this.NumColsPer = numColsPer;
+    }
+
+    public void setMaxSizePer(double maxSizePer) {
+        this.MaxSizePer = maxSizePer;
+    }
+
     public int getMaterialHeight() {
         return materialHeight;
     }
+
     public int getMaterialWidth() {
         return materialWidth;
+    }
+
+    public double getNumColsPer() {
+        return NumColsPer;
+    }
+
+    public double getMaxSizePer() {
+        return MaxSizePer;
     }
 
     public ArrayList<Item> getItems() {
