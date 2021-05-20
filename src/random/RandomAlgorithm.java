@@ -27,7 +27,7 @@ public class RandomAlgorithm<I extends Individual, P extends Problem<I>> extends
             I new_individual = problem.getNewIndividual();
             new_individual.computeFitness();
 
-            if(new_individual.getFitness() > globalBest.getFitness())
+            if(new_individual.getFitness() < globalBest.getFitness())
             {
                 globalBest = new_individual;
             }

@@ -21,7 +21,6 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
         }
 
         shuffleGenome();
-        material = new int[problem.getMaterialHeight()][problem.getMaterialWidth()];
     }
 
     public StockingProblemIndividual(StockingProblemIndividual original)
@@ -35,6 +34,7 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
     @Override
     public double computeFitness()
     {
+        material = new int[problem.getMaterialHeight()][problem.getMaterialWidth()];
         ArrayList<Item> items = problem.getItems();
         Item item_to_place;
 
@@ -67,11 +67,12 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
 
         countCuts();
 
-        this.fitness = 0.7f * num_cuts + materialMaxSize * 0.3f;
+        this.fitness = problem.getNumColsPer() * num_cuts + problem.getMaxSizePer() * materialMaxSize;
         return fitness;
     }
 
-    private boolean checkValidPlacement(Item item, int[][] material, int lineIndex, int columnIndex) {
+    private boolean checkValidPlacement(Item item, int[][] material, int lineIndex, int columnIndex)
+    {
         int[][] itemMatrix = item.getMatrix();
         for (int i = 0; i < itemMatrix.length; i++) {
             for (int j = 0; j < itemMatrix[i].length; j++) {
@@ -88,7 +89,8 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         StringBuilder sb = new StringBuilder();
         sb.append("Fitness: ");
         sb.append(fitness);
@@ -132,12 +134,14 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
      * 0, otherwise.
      */
     @Override
-    public int compareTo(StockingProblemIndividual i) {
+    public int compareTo(StockingProblemIndividual i)
+    {
         return (this.fitness == i.getFitness()) ? 0 : (this.fitness < i.getFitness()) ? 1 : -1;
     }
 
     @Override
-    public StockingProblemIndividual clone() {
+    public StockingProblemIndividual clone()
+    {
         return new StockingProblemIndividual(this);
     }
 
@@ -161,7 +165,7 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
     private void place_item_in_position(Item item_to_place, int i, int j)
     {
         int[][] item_matrix = item_to_place.getMatrix();
-        int right_most_column = j + item_to_place.getColumns();
+        int right_most_column = i + item_to_place.getColumns();
 
         if(materialMaxSize < right_most_column)
         {
@@ -215,6 +219,13 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
             }
         }
 
-        num_cuts+= problem.getMaterialHeight();
+        // Check if cut on max size wasn't counted yet
+        for (int i = 0; i < problem.getMaterialHeight(); i++)
+        {
+            if(material[i][materialMaxSize - 1] == 0)
+            {
+                 num_cuts++;
+            }
+        }
     }
 }
