@@ -7,7 +7,7 @@ import java.util.*;
 
 public class StockingProblemIndividual extends IntVectorIndividual<StockingProblem, StockingProblemIndividual>
 {
-    private int[][] material;
+    private ArrayList<Integer>[] material;
     private int num_cuts, materialMaxSize;
 
     public StockingProblemIndividual(StockingProblem problem, int size)
@@ -34,53 +34,88 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
     @Override
     public double computeFitness()
     {
-        material = new int[problem.getMaterialHeight()][problem.getMaterialWidth()];
+        // Initialize material
+        material = new ArrayList[problem.getMaterialHeight()];
+
+        for (int i = 0; i < material.length; i++)
+        {
+            material[i] = new ArrayList();
+        }
+
+        // Get needed variables
         ArrayList<Item> items = problem.getItems();
         Item item_to_place;
-
-        int length = material[0].length;
         materialMaxSize = 0;
 
         // Fill material matrix
         // Loop through genome and get items
-        for (int m = 0; m < genome.length; m++)
+        for (int m : genome)
         {
-            item_to_place = items.get(genome[m]);
+            item_to_place = items.get(m);
+            int i = 0;
 
-            // Loop material matrix from left to right
-            for (int i = 0; i < length; i++)
+            while(i != -1)
             {
                 // Loop material matrix from top to bottom
                 for (int j = 0; j < material.length; j++)
                 {
-                    if(checkValidPlacement(item_to_place, material, j, i))
+                    if (checkValidPlacement(item_to_place, i, j))
                     {
                         place_item_in_position(item_to_place, i, j);
 
                         // Stop searching
-                        i = length;
+                        i = -2;
                         break;
                     }
                 }
+
+                i++;
             }
         }
 
+        zeroPaddings();
         countCuts();
 
         this.fitness = problem.getNumColsPer() * num_cuts + problem.getMaxSizePer() * materialMaxSize;
         return fitness;
     }
 
-    private boolean checkValidPlacement(Item item, int[][] material, int lineIndex, int columnIndex)
+    private boolean checkValidPlacement(Item item, int i, int j)
     {
         int[][] itemMatrix = item.getMatrix();
-        for (int i = 0; i < itemMatrix.length; i++) {
-            for (int j = 0; j < itemMatrix[i].length; j++) {
-                if (itemMatrix[i][j] != 0) {
-                    if ((lineIndex + i) >= material.length
-                            || (columnIndex + j) >= material[0].length
-                            || material[lineIndex + i][columnIndex + j] != 0) {
-                        return false;
+
+        for (int k = 0; k < item.getLines(); k++)
+        {
+            if(k + j > problem.getMaterialHeight() - 1)
+            {
+                return false;
+            }
+
+            // We do not need to search to see if matrix can be placed in a line if line has no values
+            if(material[j+k].size() != 0)
+            {
+                int last_line_filled_position = material[j+k].size() - 1;
+
+                // if last filled position is inferior to the first position we want to fill
+                if(last_line_filled_position < i)
+                {
+                    continue;
+                }
+
+                for (int l = 0; l < item.getColumns(); l++)
+                {
+                    // if last filled position was bigger than the first position to be filled but now is inferior
+                    if(last_line_filled_position < l + i)
+                    {
+                        break;
+                    }
+
+                    if (itemMatrix[k][l] != 0)
+                    {
+                        if (material[j+k].get(l + i) != 0)
+                        {
+                            return false;
+                        }
                     }
                 }
             }
@@ -104,14 +139,14 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
         for (int i = 0; i < problem.getMaterialHeight(); i++)
         {
             sb.append("[");
-            for (int j = 0; j < problem.getMaterialWidth(); j++)
+            for (int j = 0; j < material[i].size() ; j++)
             {
-                if(material[i][j] == 0)
+                if(material[i].get(j) == 0)
                 {
                     sb.append("0 ");
                     continue;
                 }
-                sb.append((char)material[i][j] + " ");
+                sb.append((char) (int)material[i].get(j) + " ");
             }
             sb.append("]\n");
         }
@@ -177,28 +212,44 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
         {
             // Loop item columns
             for (int l = 0; l < item_matrix[0].length; l++)
-                {
+            {
+                int last_line_filled_position = material[j+k].size() - 1;
+
                 // Only place if value inside item position is 1
                 if(item_matrix[k][l] != 0)
                 {
-                    material[j+k][i+l] = item_to_place.getRepresentation();
+                    if(last_line_filled_position < i+l)
+                    {
+                        //Place missing positons on the left side
+                        for (int m = last_line_filled_position; m < i + l - 1; m++)
+                        {
+                            material[j+k].add(0);
+                        }
+
+                        material[j+k].add((int)item_to_place.getRepresentation());
+                    }
+                    else
+                    {
+                        material[j+k].set(i+l, (int)item_to_place.getRepresentation());
+                    }
                 }
             }
         }
+
     }
 
     private void countCuts()
     {
         num_cuts = 0;
 
+        /*
         // Count horizontal cuts
-        // Loop material matrix from top to bottom
+        // Loop material matrix from top to bottom, left to right and compare this and next position
         for (int i = 0; i < material.length; i++)
         {
-            // Loop material matrix from left to right
-            for (int j = 0; j < material[0].length - 1; j++)
+            for (int j = 0; j < material[i].size() - 1; j++)
             {
-                if(material[i][j] != material[i][j + 1])
+                if(material[i].get(j) != material[i].get(j + 1))
                 {
                     num_cuts++;
                 }
@@ -206,25 +257,59 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
         }
 
         // Count vertical cuts
-        // Loop material matrix from left to right
-        for (int i = 0; i < material[0].length; i++)
+        // Loop material matrix from left to right, top to bottom and compare this and position below
+        for (int i = 0; i < materialMaxSize; i++)
         {
             // Loop material matrix from top to bottom
             for (int j = 0; j < material.length - 1; j++)
             {
-                if(material[j][i] != material[j + 1][i])
+                if(material[j].get(i) != material[j + 1].get(i))
                 {
                     num_cuts++;
                 }
             }
+        }*/
+
+        // Loop matrix rows and compare each position to the one on its right and below
+        for (int i = 0; i < material.length - 1; i++)
+        {
+            for (int j = 0; j < materialMaxSize - 1; j++)
+            {
+                if(material[i].get(j) != material[i].get(j + 1))
+                {
+                    num_cuts++;
+                }
+
+                if(material[i].get(j) != material[i + 1].get(j))
+                {
+                    num_cuts++;
+                }
+            }
+
+            // Necessary because last column positions are not going to get compared to the positons below
+            if(material[i].get(materialMaxSize - 1) != material[i + 1].get(materialMaxSize - 1))
+            {
+                num_cuts++;
+            }
         }
 
-        // Check if cut on max size wasn't counted yet
-        for (int i = 0; i < problem.getMaterialHeight(); i++)
+        // Necessary because last row positions are not going to get compared to the positons on the right
+        for (int j = 0; j < materialMaxSize - 1; j++)
         {
-            if(material[i][materialMaxSize - 1] == 0)
+            if(material[material.length - 1].get(j) != material[material.length - 1].get(j + 1))
             {
-                 num_cuts++;
+                num_cuts++;
+            }
+        }
+    }
+
+    private void zeroPaddings()
+    {
+        for (int j = 0; j < material.length; j++)
+        {
+            for (int i = material[j].size(); i < materialMaxSize; i++)
+            {
+                material[j].add(0);
             }
         }
     }
