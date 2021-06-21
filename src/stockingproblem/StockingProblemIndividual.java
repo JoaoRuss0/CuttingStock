@@ -8,6 +8,7 @@ import java.util.*;
 public class StockingProblemIndividual extends IntVectorIndividual<StockingProblem, StockingProblemIndividual>
 {
     private ArrayList<Integer>[] material;
+    private int[] rotations;
     private int num_cuts, materialMaxSize;
 
     public StockingProblemIndividual(StockingProblem problem, int size)
@@ -20,6 +21,10 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
             genome[i] = i;
         }
 
+        // Fill rotation array with 0, meaning piece rotated 0 times to the right
+        rotations = new int[genome.length];
+        Arrays.fill(rotations, 0);
+
         shuffleGenome();
     }
 
@@ -29,6 +34,7 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
         this.num_cuts = original.num_cuts;
         this.materialMaxSize = original.materialMaxSize;
         this.material = original.material.clone();
+        this.rotations = original.rotations.clone();
     }
 
     @Override
@@ -49,26 +55,34 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
 
         // Fill material matrix
         // Loop through genome and get items
-        for (int m : genome)
+        for (int l = 0; l < genome.length; l++)
         {
-            item_to_place = items.get(m);
+            item_to_place = items.get(genome[l]);
             int i = 0;
 
-            while(i != -1)
+            out:
+
+            while(true)
             {
                 // Loop material matrix from top to bottom
                 for (int j = 0; j < material.length; j++)
                 {
-                    if (checkValidPlacement(item_to_place, i, j))
+                    // Check if rotations fit
+                    for (int k = 0; k < 4; k++)
                     {
-                        place_item_in_position(item_to_place, i, j);
+                        Item new_item = new Item(item_to_place.getId(), problem.getRotationsIndex(genome[l] * 4 + k));
 
-                        // Stop searching
-                        i = -2;
-                        break;
+                        if (checkValidPlacement(new_item, i, j))
+                        {
+                            place_item_in_position(new_item, i, j);
+
+                            rotations[l] = k;
+
+                            // Stop searching
+                            break out;
+                        }
                     }
                 }
-
                 i++;
             }
         }
@@ -131,9 +145,13 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
         sb.append(fitness);
         sb.append("\n");
 
-        sb.append("Genome: ");
+        sb.append("Genome:    ");
         sb.append(Arrays.toString(genome));
         sb.append("\n");
+
+        sb.append("Rotations: ");
+        sb.append(Arrays.toString(rotations));
+        sb.append("\n\n");
 
         sb.append("Material: \n");
         for (int i = 0; i < problem.getMaterialHeight(); i++)
@@ -241,34 +259,6 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
     private void countCuts()
     {
         num_cuts = 0;
-
-        /*
-        // Count horizontal cuts
-        // Loop material matrix from top to bottom, left to right and compare this and next position
-        for (int i = 0; i < material.length; i++)
-        {
-            for (int j = 0; j < material[i].size() - 1; j++)
-            {
-                if(material[i].get(j) != material[i].get(j + 1))
-                {
-                    num_cuts++;
-                }
-            }
-        }
-
-        // Count vertical cuts
-        // Loop material matrix from left to right, top to bottom and compare this and position below
-        for (int i = 0; i < materialMaxSize; i++)
-        {
-            // Loop material matrix from top to bottom
-            for (int j = 0; j < material.length - 1; j++)
-            {
-                if(material[j].get(i) != material[j + 1].get(i))
-                {
-                    num_cuts++;
-                }
-            }
-        }*/
 
         // Loop matrix rows and compare each position to the one on its right and below
         for (int i = 0; i < material.length - 1; i++)
