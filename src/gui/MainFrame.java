@@ -453,10 +453,10 @@ class PanelParameters extends PanelAtributesValue {
     String[] selectionMethods = {"Tournament", "Roulette wheel"};
     JComboBox jComboBoxSelectionMethods = new JComboBox(selectionMethods);
     JTextField jTextFieldTournamentSize = new JTextField(TOURNAMENT_SIZE, TEXT_FIELD_LENGHT);
-    String[] recombinationMethods = {"PMX", "Recombination 2", "Recombination 3"};
+    String[] recombinationMethods = {"PMX", "Cycle", "Order1"};
     JComboBox jComboBoxRecombinationMethods = new JComboBox(recombinationMethods);
     JTextField jTextFieldProbRecombination = new JTextField(PROB_RECOMBINATION, TEXT_FIELD_LENGHT);
-    String[] mutationMethods = {"Insert", "Mutation 2", "Mutation 3"};
+    String[] mutationMethods = {"Insert", "Swap", "Inversion"};
     JComboBox jComboBoxMutationMethods = new JComboBox(mutationMethods);
     JTextField jTextFieldProbMutation = new JTextField(PROB_MUTATION, TEXT_FIELD_LENGHT);
     String[] algorithms = {"GA", "Random"};
@@ -540,9 +540,9 @@ class PanelParameters extends PanelAtributesValue {
             case 0:
                 return new RecombinationPartialMapped<>(recombinationProb);
             case 1:
-                return new Recombination2<>(recombinationProb);
+                return new RecombinationCycle<>(recombinationProb);
             case 2:
-                return new Recombination3<>(recombinationProb);
+                return new RecombinationOrder1<>(recombinationProb);
         }
         return null;
     }
@@ -556,9 +556,9 @@ class PanelParameters extends PanelAtributesValue {
             case 0:
                 return new MutationInsert<>(mutationProb);
             case 1:
-                return new Mutation2<>(mutationProb);
+                return new MutationSwap<>(mutationProb);
             case 2:
-                return new Mutation3<>(mutationProb);
+                return new MutationInversion<>(mutationProb);
         }
         return null;
     }

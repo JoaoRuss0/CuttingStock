@@ -8,26 +8,62 @@ import java.util.ArrayList;
 
 public class StockingProblem implements Problem<StockingProblemIndividual> {
     private int materialHeight;
-    private int materialWidth;
     private double NumColsPer;
     private double MaxSizePer;
     private ArrayList<Item> items;
+    private ArrayList<int[][]> computedRotations;
 
-    public StockingProblem(int materialHeight, ArrayList<Item> items) {
+    public StockingProblem(int materialHeight, ArrayList<Item> items)
+    {
         this.materialHeight = materialHeight;
         this.items = items;
-        this.materialWidth = 0;
+        this.computedRotations = new ArrayList<>();
 
-        for (Item item : items)
+        computeRotations();
+    }
+
+    private void computeRotations()
+    {
+        int i = 0;
+
+        for (Item item: items)
         {
-            this.materialWidth += item.getColumns();
+            computedRotations.add(item.getMatrix());
+
+            for (int j = 0; j < 3; j++)
+            {
+                computedRotations.add(rotate90DegreesClockwise(computedRotations.get(i + j)));
+            }
+
+            i+=4;
         }
+    }
+
+    private int[][] rotate90DegreesClockwise(int[][] oldMatrix)
+    {
+        int cols = oldMatrix[0].length, rows = oldMatrix.length;
+        int[][] rotated = new int[cols][rows];
+        int newCol, newRow = cols - 1;
+
+        for (int oldCol = cols - 1; oldCol >= 0; oldCol--)
+        {
+            newCol = rows - 1;
+
+            for (int oldRow = 0; oldRow < rows; oldRow++)
+            {
+                rotated[newRow][newCol] = oldMatrix[oldRow][oldCol];
+                newCol--;
+            }
+            newRow--;
+        }
+
+        return rotated;
     }
 
     @Override
     public StockingProblemIndividual getNewIndividual()
     {
-        return new StockingProblemIndividual(this, items.size() - 1);
+        return new StockingProblemIndividual(this, items.size());
     }
 
     public void setNumColsPer(double numColsPer) {
@@ -42,10 +78,6 @@ public class StockingProblem implements Problem<StockingProblemIndividual> {
         return materialHeight;
     }
 
-    public int getMaterialWidth() {
-        return materialWidth;
-    }
-
     public double getNumColsPer() {
         return NumColsPer;
     }
@@ -56,6 +88,11 @@ public class StockingProblem implements Problem<StockingProblemIndividual> {
 
     public ArrayList<Item> getItems() {
         return items;
+    }
+
+    public int[][] getRotationsIndex(int index)
+    {
+        return computedRotations.get(index);
     }
 
     @Override
