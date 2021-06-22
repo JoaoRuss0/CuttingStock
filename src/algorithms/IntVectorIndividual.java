@@ -4,19 +4,21 @@ import java.util.ArrayList;
 
 public abstract class IntVectorIndividual<P extends Problem, I extends IntVectorIndividual> extends Individual<P, I>
 {
-    //TODO this class might require the definition of additional methods and/or attributes
-
     protected int[] genome;
+    protected int[] rotations;
 
     public IntVectorIndividual(P problem, int size) {
         super(problem);
         genome = new int[size];
+        rotations = new int[size];
       }
 
     public IntVectorIndividual(IntVectorIndividual<P, I> original) {
         super(original);
         this.genome = new int[original.genome.length];
+        this.rotations = new int[original.rotations.length];
         System.arraycopy(original.genome, 0, genome, 0, genome.length);
+        System.arraycopy(original.rotations, 0, rotations, 0, rotations.length);
     }
 
     @Override

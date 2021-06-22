@@ -445,8 +445,8 @@ class PanelParameters extends PanelAtributesValue {
     public static final String TOURNAMENT_SIZE = "2";
     public static final String PROB_RECOMBINATION = "0.7";
     public static final String PROB_MUTATION = "0.1";
-    public static final String NUM_CUTS_PER = "0.7";
-    public static final String MAX_SIZE_PER = "0.3";
+    public static final String NUM_CUTS_PER = "0.6";
+    public static final String MAX_SIZE_PER = "0.4";
     JTextField jTextFieldSeed = new JTextField(SEED, TEXT_FIELD_LENGHT);
     JTextField jTextFieldN = new JTextField(POPULATION_SIZE, TEXT_FIELD_LENGHT);
     JTextField jTextFieldGenerations = new JTextField(GENERATIONS, TEXT_FIELD_LENGHT);
