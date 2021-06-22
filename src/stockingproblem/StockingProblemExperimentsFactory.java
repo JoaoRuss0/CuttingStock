@@ -77,6 +77,8 @@ public class StockingProblemExperimentsFactory extends ExperimentsFactory {
         //PROBLEM
         problem = StockingProblem.buildProblem(new File(getParameterValue("Problem_file")));
 
+        problem.setMaxSizePer(Double.parseDouble(getParameterValue("MaxSizePer")));
+        problem.setNumColsPer(Double.parseDouble(getParameterValue("NumColsPer")));
 
         String experimentTextualRepresentation = buildExperimentTextualRepresentation();
         String experimentHeader = buildExperimentHeader();

@@ -8,7 +8,6 @@ import java.util.*;
 public class StockingProblemIndividual extends IntVectorIndividual<StockingProblem, StockingProblemIndividual>
 {
     private ArrayList<Integer>[] material;
-    private int[] rotations;
     private int num_cuts, materialMaxSize;
 
     public StockingProblemIndividual(StockingProblem problem, int size)
@@ -22,7 +21,6 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
         }
 
         // Fill rotation array with 0, meaning piece rotated 0 times to the right
-        rotations = new int[genome.length];
         Arrays.fill(rotations, 0);
 
         shuffleGenome();
@@ -34,7 +32,6 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
         this.num_cuts = original.num_cuts;
         this.materialMaxSize = original.materialMaxSize;
         this.material = original.material.clone();
-        this.rotations = original.rotations.clone();
     }
 
     @Override
@@ -70,11 +67,9 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
                     // Check if rotations fit
                     for (int k = 0; k < 4; k++)
                     {
-                        Item new_item = new Item(item_to_place.getId(), problem.getRotationsIndex(genome[l] * 4 + k));
-
-                        if (checkValidPlacement(new_item, i, j))
+                        if (checkValidPlacement(problem.getRotationsIndex(genome[l] * 4 + k), i, j))
                         {
-                            place_item_in_position(new_item, i, j);
+                            place_item_in_position(problem.getRotationsIndex(genome[l] * 4 + k), item_to_place, i, j);
 
                             rotations[l] = k;
 
@@ -94,11 +89,11 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
         return fitness;
     }
 
-    private boolean checkValidPlacement(Item item, int i, int j)
+    private boolean checkValidPlacement(int[][] rotation, int i, int j)
     {
-        int[][] itemMatrix = item.getMatrix();
+        int cols = rotation[0].length;
 
-        for (int k = 0; k < item.getLines(); k++)
+        for (int k = 0; k < rotation.length; k++)
         {
             if(k + j > problem.getMaterialHeight() - 1)
             {
@@ -116,7 +111,7 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
                     continue;
                 }
 
-                for (int l = 0; l < item.getColumns(); l++)
+                for (int l = 0; l < cols; l++)
                 {
                     // if last filled position was bigger than the first position to be filled but now is inferior
                     if(last_line_filled_position < l + i)
@@ -124,7 +119,7 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
                         break;
                     }
 
-                    if (itemMatrix[k][l] != 0)
+                    if (rotation[k][l] != 0)
                     {
                         if (material[j+k].get(l + i) != 0)
                         {
@@ -215,10 +210,9 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
         }
     }
 
-    private void place_item_in_position(Item item_to_place, int i, int j)
+    private void place_item_in_position(int[][] rotation, Item item_to_place, int i, int j)
     {
-        int[][] item_matrix = item_to_place.getMatrix();
-        int right_most_column = i + item_to_place.getColumns();
+        int right_most_column = i + rotation[0].length;
 
         if(materialMaxSize < right_most_column)
         {
@@ -226,15 +220,15 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
         }
 
         // Loop item lines
-        for (int k = 0; k < item_matrix.length; k++)
+        for (int k = 0; k < rotation.length; k++)
         {
             // Loop item columns
-            for (int l = 0; l < item_matrix[0].length; l++)
+            for (int l = 0; l < rotation[0].length; l++)
             {
                 int last_line_filled_position = material[j+k].size() - 1;
 
                 // Only place if value inside item position is 1
-                if(item_matrix[k][l] != 0)
+                if(rotation[k][l] != 0)
                 {
                     if(last_line_filled_position < i+l)
                     {
