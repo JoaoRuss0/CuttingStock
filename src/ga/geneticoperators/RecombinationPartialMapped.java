@@ -80,7 +80,6 @@ public class RecombinationPartialMapped<I extends IntVectorIndividual, P extends
                 int xRotation = ind1.getRotation(index);
                 int y = ind2.getGene(index);
                 int yRotation = ind2.getRotation(index);
-                ;
 
                 segment1[0][segment1and2Index] = x;
                 segment1[1][segment1and2Index] = xRotation;
@@ -127,7 +126,6 @@ public class RecombinationPartialMapped<I extends IntVectorIndividual, P extends
             }
         }
     }
-
 
     @Override
     public String toString() {
