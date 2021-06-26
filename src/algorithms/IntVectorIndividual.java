@@ -11,7 +11,7 @@ public abstract class IntVectorIndividual<P extends Problem, I extends IntVector
         super(problem);
         genome = new int[size];
         rotations = new int[size];
-      }
+    }
 
     public IntVectorIndividual(IntVectorIndividual<P, I> original) {
         super(original);
@@ -48,6 +48,14 @@ public abstract class IntVectorIndividual<P extends Problem, I extends IntVector
 
     public void setGene(int index, int newValue) {
         genome[index] = newValue;
+    }
+
+    public int getRotation(int index) {
+        return rotations[index];
+    }
+
+    public void setRotation(int index, int newValue) {
+        rotations[index] = newValue;
     }
 
     @Override

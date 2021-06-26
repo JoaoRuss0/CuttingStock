@@ -20,10 +20,8 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
             genome[i] = i;
         }
 
-        // Fill rotation array with 0, meaning piece rotated 0 times to the right
-        Arrays.fill(rotations, 0);
-
         shuffleGenome();
+        fillWithRandomRotations();
     }
 
     public StockingProblemIndividual(StockingProblemIndividual original)
@@ -48,34 +46,35 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
         // Get needed variables
         ArrayList<Item> items = problem.getItems();
         Item item_to_place;
+        int[][] rotation;
         materialMaxSize = 0;
 
         // Fill material matrix
         // Loop through genome and get items
         for (int l = 0; l < genome.length; l++)
         {
-            item_to_place = items.get(genome[l]);
             int i = 0;
 
-            out:
+            item_to_place = items.get(genome[l]);
+            rotation = item_to_place.getRotation(rotations[l]);
 
+            out:
             while(true)
             {
                 // Loop material matrix from top to bottom
                 for (int j = 0; j < material.length; j++)
                 {
-                    // Check if rotations fit
-                    for (int k = 0; k < 4; k++)
+                    if(rotation.length + j > problem.getMaterialHeight())
                     {
-                        if (checkValidPlacement(problem.getRotationsIndex(genome[l] * 4 + k), i, j))
-                        {
-                            place_item_in_position(problem.getRotationsIndex(genome[l] * 4 + k), item_to_place, i, j);
+                        break;
+                    }
 
-                            rotations[l] = k;
+                    if (checkValidPlacement(rotation, i, j))
+                    {
+                        place_item_in_position(rotation, item_to_place, i, j);
 
-                            // Stop searching
-                            break out;
-                        }
+                        // Stop searching
+                        break out;
                     }
                 }
                 i++;
@@ -95,11 +94,6 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
 
         for (int k = 0; k < rotation.length; k++)
         {
-            if(k + j > problem.getMaterialHeight() - 1)
-            {
-                return false;
-            }
-
             // We do not need to search to see if matrix can be placed in a line if line has no values
             if(material[j+k].size() != 0)
             {
@@ -113,7 +107,8 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
 
                 for (int l = 0; l < cols; l++)
                 {
-                    // if last filled position was bigger than the first position to be filled but now is inferior
+                    // If last filled position was bigger than the first position we wanted to fill
+                    // but now is inferior because we looped forward some positions of the matrix
                     if(last_line_filled_position < l + i)
                     {
                         break;
@@ -210,6 +205,17 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
         }
     }
 
+    private void fillWithRandomRotations()
+    {
+        int length = this.rotations.length;
+
+        // Loop through rotations
+        for (int i = 0; i < length; i++)
+        {
+            setRandomRotation(i);
+        }
+    }
+
     private void place_item_in_position(int[][] rotation, Item item_to_place, int i, int j)
     {
         int right_most_column = i + rotation[0].length;
@@ -295,6 +301,21 @@ public class StockingProblemIndividual extends IntVectorIndividual<StockingProbl
             {
                 material[j].add(0);
             }
+        }
+    }
+
+    public void setRandomRotation(int pos)
+    {
+        Item item = problem.getItem(genome[pos]);
+        int possibleRotationsSize = item.getPossibleRotations().length;
+
+        if(possibleRotationsSize > 1)
+        {
+            this.rotations[pos] = item.possibleRotations(Algorithm.random.nextInt(possibleRotationsSize));
+        }
+        else
+        {
+            this.rotations[pos] = 0;
         }
     }
 }

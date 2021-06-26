@@ -33,12 +33,27 @@ public class MutationInversion<I extends IntVectorIndividual, P extends Problem<
             pos1 = aux;
         }
 
+        int length = pos2 - pos1 + 1;
+
         // Swap allele values
-        for(int i =  0; i < (pos2 - pos1 + 1)/2; i++)
+        for(int i =  0; i < length/2; i++)
         {
             int aux = ind.getGene(pos1 + i);
+            int auxRotation = ind.getRotation(pos1 + i);
+
             ind.setGene(pos1 + i, ind.getGene(pos2 - i));
+            ind.setRotation(pos1 + i, ind.getRotation(pos2 - i));
+
             ind.setGene(pos2 - i, aux);
+            ind.setRotation(pos2 - i, auxRotation);
+
+            mutateRotation(pos1 + i, ind);
+            mutateRotation(pos2 - i, ind);
+        }
+
+        if(length % 2 == 1)
+        {
+            mutateRotation(pos1 + length/2, ind);
         }
     }
 

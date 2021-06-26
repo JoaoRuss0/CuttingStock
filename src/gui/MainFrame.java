@@ -578,7 +578,6 @@ class JComboBoxSelectionMethods_ActionAdapter implements ActionListener {
     }
 }
 
-
 class IntegerTextField_KeyAdapter implements KeyListener {
 
     final private MainFrame adaptee;
