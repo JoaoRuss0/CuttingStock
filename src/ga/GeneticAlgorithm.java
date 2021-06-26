@@ -1,6 +1,5 @@
 package ga;
 
-
 import algorithms.*;
 import ga.geneticoperators.Mutation;
 import ga.geneticoperators.Recombination;

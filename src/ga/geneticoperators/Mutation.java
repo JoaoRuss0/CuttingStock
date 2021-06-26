@@ -1,5 +1,6 @@
 package ga.geneticoperators;
 
+import algorithms.Algorithm;
 import algorithms.Individual;
 import ga.Population;
 import algorithms.Problem;
@@ -18,6 +19,14 @@ public abstract class Mutation <I extends Individual, P extends Problem<I>> exte
             if (random.nextDouble() < getProbability()) {
                 mutate(population.getIndividual(i));
             }
+        }
+    }
+
+    public void mutateRotation(int pos, I ind)
+    {
+        if(probability < Algorithm.random.nextDouble())
+        {
+            ind.setRandomRotation(pos);
         }
     }
 

@@ -1,5 +1,6 @@
 package ga.geneticoperators;
 
+import algorithms.Algorithm;
 import algorithms.IntVectorIndividual;
 import algorithms.Problem;
 import ga.GeneticAlgorithm;
@@ -25,10 +26,18 @@ public class MutationSwap<I extends IntVectorIndividual, P extends Problem<I>> e
             pos2 = GeneticAlgorithm.random.nextInt(size);
         }
 
-        // Swap allele values
+        // Swap allele and rotation values
         int aux = ind.getGene(pos1);
+        int auxRotation = ind.getRotation(pos1);
+
         ind.setGene(pos1, ind.getGene(pos2));
+        ind.setRotation(pos1, ind.getRotation(pos2));
         ind.setGene(pos2, aux);
+        ind.setRotation(pos2, auxRotation);
+
+        // Mutate Genome Item Rotation
+        mutateRotation(pos1, ind);
+        mutateRotation(pos2, ind);
     }
 
     @Override

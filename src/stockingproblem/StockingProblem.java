@@ -11,53 +11,11 @@ public class StockingProblem implements Problem<StockingProblemIndividual> {
     private double NumColsPer;
     private double MaxSizePer;
     private ArrayList<Item> items;
-    private ArrayList<int[][]> computedRotations;
 
     public StockingProblem(int materialHeight, ArrayList<Item> items)
     {
         this.materialHeight = materialHeight;
         this.items = items;
-        this.computedRotations = new ArrayList<>();
-
-        computeRotations();
-    }
-
-    private void computeRotations()
-    {
-        int i = 0;
-
-        for (Item item: items)
-        {
-            computedRotations.add(item.getMatrix());
-
-            for (int j = 0; j < 3; j++)
-            {
-                computedRotations.add(rotate90DegreesClockwise(computedRotations.get(i + j)));
-            }
-
-            i+=4;
-        }
-    }
-
-    private int[][] rotate90DegreesClockwise(int[][] oldMatrix)
-    {
-        int cols = oldMatrix[0].length, rows = oldMatrix.length;
-        int[][] rotated = new int[cols][rows];
-        int newCol, newRow = cols - 1;
-
-        for (int oldCol = cols - 1; oldCol >= 0; oldCol--)
-        {
-            newCol = rows - 1;
-
-            for (int oldRow = 0; oldRow < rows; oldRow++)
-            {
-                rotated[newRow][newCol] = oldMatrix[oldRow][oldCol];
-                newCol--;
-            }
-            newRow--;
-        }
-
-        return rotated;
     }
 
     @Override
@@ -90,9 +48,8 @@ public class StockingProblem implements Problem<StockingProblemIndividual> {
         return items;
     }
 
-    public int[][] getRotationsIndex(int index)
-    {
-        return computedRotations.get(index);
+    public Item getItem(int index) {
+        return items.get(index);
     }
 
     @Override
@@ -128,7 +85,7 @@ public class StockingProblem implements Problem<StockingProblemIndividual> {
                     matrix[j][k] = f.nextInt();
                 }
             }
-            items.add(new Item(i, matrix));
+            items.add(new Item(materialHeight, i, matrix));
         }
         return new StockingProblem(materialHeight, items);
     }

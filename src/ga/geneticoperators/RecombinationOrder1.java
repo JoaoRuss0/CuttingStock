@@ -16,11 +16,13 @@ public class RecombinationOrder1<I extends IntVectorIndividual, P extends Proble
     public void recombine(I ind1, I ind2)
     {
         int size = ind1.getNumGenes();
-        int[] child1 = new int[size];
-        int[] child2 = new int[size];
+        int[][] child1 = new int[2][size];
+        int[][] child2 = new int[2][size];
 
-        Arrays.fill(child1, -1);
-        Arrays.fill(child2, -1);
+        Arrays.fill(child1[0], -1);
+        Arrays.fill(child1[1], -1);
+        Arrays.fill(child2[0], -1);
+        Arrays.fill(child2[1], -1);
 
         int cut1 = GeneticAlgorithm.random.nextInt(size);
         int cut2 = GeneticAlgorithm.random.nextInt(size);
@@ -43,8 +45,10 @@ public class RecombinationOrder1<I extends IntVectorIndividual, P extends Proble
         // Replace parent's genome
         for (int i = 0; i < size; i++)
         {
-            ind1.setGene(i, child1[i]);
-            ind2.setGene(i, child2[i]);
+            ind1.setGene(i, child1[0][i]);
+            ind1.setRotation(i, child1[1][i]);
+            ind2.setGene(i, child2[0][i]);
+            ind2.setRotation(i, child2[1][i]);
         }
     }
 
@@ -61,31 +65,38 @@ public class RecombinationOrder1<I extends IntVectorIndividual, P extends Proble
         return false;
     }
 
-    private void getChild(I mainParent, I secondParent, int cut1, int cut2, int[] child, int size)
+    private void getChild(I mainParent, I secondParent, int cut1, int cut2, int[][] child, int size)
     {
         // Fill child with main parent's random segment
         for (int i = cut1; i <= cut2; i++)
         {
-            child[i] = mainParent.getGene(i);
+            child[0][i] = mainParent.getGene(i);
+            child[1][i] = mainParent.getRotation(i);
         }
 
-        int[] notUsed = new int[size - (cut2 - cut1 + 1)];
+        int[][] notUsed = new int[2][size - (cut2 - cut1 + 1)];
         int j = 0;
+        int index;
 
         // Get not yet used alleles
         for (int i = 0; i < size; i++)
         {
-            if(!arrayContains(child, secondParent.getGene((cut2 + 1 + i) % size)))
+            index = (cut2 + 1 + i) % size;
+
+            if(!arrayContains(child[0], secondParent.getGene(index)))
             {
-                notUsed[j] = secondParent.getGene((cut2 + 1 + i) % size);
+                notUsed[0][j] = secondParent.getGene(index);
+                notUsed[1][j] = secondParent.getRotation(index);
                 j++;
             }
         }
 
         // Fill child with not yet used alleles
-        for (int i = 0; i < notUsed.length; i++)
+        for (int i = 0; i < notUsed[0].length; i++)
         {
-            child[(cut2 + 1 + i) % size] = notUsed[i];
+            index = (cut2 + 1 + i) % size;
+            child[0][index] = notUsed[0][i];
+            child[1][index] = notUsed[1][i];
         }
     }
 

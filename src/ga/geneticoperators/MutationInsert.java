@@ -26,15 +26,23 @@ public class MutationInsert<I extends IntVectorIndividual, P extends Problem<I>>
             cut2 = aux;
         }
 
-        // Repeatedly swap allele values from i to i + 1
+        // Repeatedly swap allele values and rotation values from i to i + 1
         // Allele values will be shifted to the right by 1 and starting allele value will go all the way to the left
         for(int i = cut2-1; i > cut1 ; i--)
         {
             int aux = ind.getGene(i + 1);
+            int auxRotation = ind.getRotation(i + 1);
+
             ind.setGene(i + 1, ind.getGene(i));
+            ind.setRotation(i + 1, ind.getRotation(i));
+
             ind.setGene(i, aux);
+            ind.setRotation(i, auxRotation);
+
+            mutateRotation(i + 1, ind);
         }
 
+        mutateRotation(cut1 + 1, ind);
     }
 
 
