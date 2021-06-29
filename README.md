@@ -1,4 +1,4 @@
-# Stocking Problem
+# Two-Dimensional Cutting Stock Problem
 
 This repository contains a genetic algorithm approach to try and solve a two-dimensional cutting stock problem I developed for one of my classes during my computer engineering degree.
 
