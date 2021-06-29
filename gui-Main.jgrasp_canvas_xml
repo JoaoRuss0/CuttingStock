@@ -8,18 +8,24 @@
     <Show>false</Show>
   </Grid>
   <Scope id="1">
+    <Name>crossOver</Name>
+    <Signature>([ILalgorithms/IntVectorIndividual;)V</Signature>
+    <DeclaringType>ga.geneticoperators.RecombinationPartialMapped</DeclaringType>
+    <Depth>0</Depth>
+  </Scope>
+  <Scope id="4">
+    <Name>rotate90DegreesClockwise</Name>
+    <Signature>([[I)[[I</Signature>
+    <DeclaringType>stockingproblem.Item</DeclaringType>
+    <Depth>0</Depth>
+  </Scope>
+  <Scope id="5">
     <Name>getChild</Name>
     <Signature>(Lalgorithms/IntVectorIndividual;Lalgorithms/IntVectorIndividual;II[[II)V</Signature>
     <DeclaringType>ga.geneticoperators.RecombinationOrder1</DeclaringType>
     <Depth>0</Depth>
   </Scope>
   <Scope id="3">
-    <Name>crossOver</Name>
-    <Signature>([ILalgorithms/IntVectorIndividual;)V</Signature>
-    <DeclaringType>ga.geneticoperators.RecombinationPartialMapped</DeclaringType>
-    <Depth>0</Depth>
-  </Scope>
-  <Scope id="0">
     <Name>computeFitness</Name>
     <Signature>()D</Signature>
     <DeclaringType>stockingproblem.StockingProblemIndividual</DeclaringType>
@@ -31,7 +37,7 @@
     <DeclaringType>ga.geneticoperators.MutationInversion</DeclaringType>
     <Depth>0</Depth>
   </Scope>
-  <Scope id="4">
+  <Scope id="6">
     <Name>run</Name>
     <Signature>(Lalgorithms/Problem;)Lalgorithms/Individual;</Signature>
     <DeclaringType>ga.GeneticAlgorithm</DeclaringType>
@@ -43,19 +49,19 @@
     <DeclaringType>ga.geneticoperators.RecombinationOrder1</DeclaringType>
     <Depth>0</Depth>
   </Scope>
-  <Scope id="5">
+  <Scope id="8">
     <Name>checkValidPlacement</Name>
     <Signature>([[III)Z</Signature>
     <DeclaringType>stockingproblem.StockingProblemIndividual</DeclaringType>
     <Depth>0</Depth>
   </Scope>
-  <Scope id="8">
+  <Scope id="0">
     <Name>mutate</Name>
     <Signature>(Lalgorithms/IntVectorIndividual;)V</Signature>
     <DeclaringType>ga.geneticoperators.MutationInsert</DeclaringType>
     <Depth>0</Depth>
   </Scope>
-  <Scope id="6">
+  <Scope id="9">
     <Name>create_Segments</Name>
     <Signature>(IILalgorithms/IntVectorIndividual;Lalgorithms/IntVectorIndividual;)V</Signature>
     <DeclaringType>ga.geneticoperators.RecombinationPartialMapped</DeclaringType>
@@ -63,46 +69,16 @@
   </Scope>
   <Frame>
     <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>5</X>
-      <Y>3050</Y>
-      <W>1221</W>
-      <H>90</H>
+      <AutoSize>true</AutoSize>
+      <X>20</X>
+      <Y>4800</Y>
+      <W>800</W>
+      <H>187</H>
     </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1225</W>
-      <H>136</H>
-    </PanelSize>
     <Viewer>
       <ScopeID>0</ScopeID>
-      <Expression>((StockingProblemIndividual)this).genome</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                
-        <Round>false</Round>
-              
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>5</X>
-      <Y>50</Y>
-      <W>1245</W>
-      <H>94</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1245</W>
-      <H>136</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>1</ScopeID>
-      <Expression>`local algorithms.IntVectorIndividual` mainParent.genome</Expression>
+      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind).genome</Expression>
+      <Indices>i#i + 1#cut1 + 1#cut2</Indices>
       <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
       <ViewerData>
                                 
@@ -113,97 +89,6 @@
       
       
       </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>940</X>
-      <Y>990</Y>
-      <W>139</W>
-      <H>49</H>
-    </Bounds>
-    <LabelLoc>
-      <WO>false</WO>
-    </LabelLoc>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>`local int` j</Expression>
-      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>60</X>
-      <Y>7170</Y>
-      <W>547</W>
-      <H>141</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>2</ScopeID>
-      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind).genome</Expression>
-      <Indices>pos1 + i#pos2 - i</Indices>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-        <Round>false</Round>
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>760</X>
-      <Y>6270</Y>
-      <W>437</W>
-      <H>137</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>`local int[][]` rotation</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_A_ToStringView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>20</X>
-      <Y>2030</Y>
-      <W>1233</W>
-      <H>97</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1237</W>
-      <H>143</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>((StockingProblemIndividual)this).genome</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                
-        <Round>false</Round>
-              
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>140</X>
-      <Y>1660</Y>
-      <W>169</W>
-      <H>53</H>
-    </Bounds>
-    <LabelLoc>
-      <WO>false</WO>
-    </LabelLoc>
-    <Viewer>
-      <ScopeID>1</ScopeID>
-      <Expression>`local int` cut2</Expression>
-      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
     </Viewer>
   </Frame>
   <Frame>
@@ -211,141 +96,31 @@
       <AutoSize>true</AutoSize>
       <X>20</X>
       <Y>4630</Y>
-      <W>541</W>
-      <H>104</H>
+      <W>543</W>
+      <H>106</H>
     </Bounds>
     <Viewer>
-      <ScopeID>3</ScopeID>
+      <ScopeID>1</ScopeID>
       <Expression>((RecombinationPartialMapped)this).child2</Expression>
       <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
       <ViewerData>
-                                
+                                        
+        
         
         
         <ViewData>
-                                        
+                                                  
           
-          
-          <Round>false</Round>
-                                      
-        
-        
-        </ViewData>
-                              
-      
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>10</X>
-      <Y>2990</Y>
-      <W>124</W>
-      <H>47</H>
-    </Bounds>
-    <LabelLoc>
-      <WO>false</WO>
-    </LabelLoc>
-    <Viewer>
-      <ScopeID>2</ScopeID>
-      <Expression>pos1 + i</Expression>
-      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>1100</X>
-      <Y>3260</Y>
-      <W>139</W>
-      <H>49</H>
-    </Bounds>
-    <LabelLoc>
-      <WO>false</WO>
-    </LabelLoc>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>`local int` l</Expression>
-      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>20</X>
-      <Y>4520</Y>
-      <W>541</W>
-      <H>104</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>3</ScopeID>
-      <Expression>((RecombinationPartialMapped)this).child1</Expression>
-      <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <ViewData>
-                                        
           
           
           <Round>false</Round>
-                                      
+                                                
+        
         
         
         </ViewData>
-                              
+                                      
       
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>20</X>
-      <Y>1850</Y>
-      <W>1227</W>
-      <H>101</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_ToStringView0</Key>
-      <Order>4</Order>
-      <W>1227</W>
-      <H>143</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>1</ScopeID>
-      <Expression>`local int[][]` notUsed</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_ToStringView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>10</X>
-      <Y>3240</Y>
-      <W>807</W>
-      <H>94</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>807</W>
-      <H>136</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>4</ScopeID>
-      <Expression>((StockingProblemIndividual)`local ga.Population` populationAux.individuals.get(0)).genome</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <Round>false</Round>
-                              
       
       
       </ViewerData>
@@ -356,8 +131,8 @@
       <AutoSize>false</AutoSize>
       <X>50</X>
       <Y>7510</Y>
-      <W>794</W>
-      <H>135</H>
+      <W>796</W>
+      <H>137</H>
     </Bounds>
     <PanelSize>
       <Key>jgrasp_viewers._X_A_PresentationView0</Key>
@@ -371,75 +146,355 @@
       <Indices>pos1 + i#pos2 - i</Indices>
       <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
       <ViewerData>
+                
         <Round>false</Round>
+              
       </ViewerData>
     </Viewer>
   </Frame>
   <Frame>
     <Bounds>
       <AutoSize>true</AutoSize>
-      <X>500</X>
-      <Y>5030</Y>
-      <W>139</W>
-      <H>49</H>
+      <X>5</X>
+      <Y>6420</Y>
+      <W>671</W>
+      <H>137</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[2].elementData</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                        
+        
+        <Round>false</Round>
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>430</X>
+      <Y>7910</Y>
+      <W>124</W>
+      <H>47</H>
     </Bounds>
     <LabelLoc>
       <WO>false</WO>
     </LabelLoc>
     <Viewer>
-      <ScopeID>5</ScopeID>
+      <ScopeID>4</ScopeID>
+      <Expression>`local int` oldRow</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>50</X>
+      <Y>7660</Y>
+      <W>793</W>
+      <H>137</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>797</W>
+      <H>183</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>2</ScopeID>
+      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind).rotations</Expression>
+      <Indices>pos1 + i#pos2 - i</Indices>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                
+        <Round>false</Round>
+              
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>20</X>
+      <Y>4520</Y>
+      <W>543</W>
+      <H>106</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>1</ScopeID>
+      <Expression>((RecombinationPartialMapped)this).child1</Expression>
+      <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <ViewData>
+                                                  
+          
+          
+          
+          <Round>false</Round>
+                                                
+        
+        
+        
+        </ViewData>
+                                      
+      
+      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>960</X>
+      <Y>6450</Y>
+      <W>154</W>
+      <H>51</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>3</ScopeID>
       <Expression>`local int` i</Expression>
       <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
     </Viewer>
   </Frame>
   <Frame>
     <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>10</X>
+      <Y>2870</Y>
+      <W>1229</W>
+      <H>96</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>1227</W>
+      <H>136</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>2</ScopeID>
+      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind).rotations</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <Round>false</Round>
+                                      
+      
+      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
       <AutoSize>true</AutoSize>
-      <X>640</X>
+      <X>60</X>
+      <Y>7170</Y>
+      <W>549</W>
+      <H>143</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>2</ScopeID>
+      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind).genome</Expression>
+      <Indices>pos1 + i#pos2 - i</Indices>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                
+        <Round>false</Round>
+              
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>340</X>
       <Y>550</Y>
-      <W>169</W>
-      <H>53</H>
+      <W>184</W>
+      <H>55</H>
     </Bounds>
     <LabelLoc>
       <WO>false</WO>
     </LabelLoc>
     <Viewer>
-      <ScopeID>1</ScopeID>
-      <Expression>`local int` index</Expression>
+      <ScopeID>5</ScopeID>
+      <Expression>`local int` cut1</Expression>
       <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
     </Viewer>
   </Frame>
   <Frame>
     <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>740</X>
-      <Y>6450</Y>
-      <W>139</W>
-      <H>49</H>
+      <AutoSize>false</AutoSize>
+      <X>10</X>
+      <Y>3340</Y>
+      <W>809</W>
+      <H>96</H>
     </Bounds>
-    <LabelLoc>
-      <WO>false</WO>
-    </LabelLoc>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>`local int` j</Expression>
-      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>140</X>
-      <Y>4180</Y>
-      <W>169</W>
-      <H>53</H>
-    </Bounds>
-    <LabelLoc>
-      <WO>false</WO>
-    </LabelLoc>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>807</W>
+      <H>136</H>
+    </PanelSize>
     <Viewer>
       <ScopeID>6</ScopeID>
-      <Expression>`local int` cutPoint2</Expression>
+      <Expression>((StockingProblemIndividual)`local ga.Population` populationAux.individuals.get(0)).rotations</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <Round>false</Round>
+                                      
+      
+      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>20</X>
+      <Y>1270</Y>
+      <W>1229</W>
+      <H>96</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>1227</W>
+      <H>136</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>7</ScopeID>
+      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind1).genome</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <Round>false</Round>
+                                      
+      
+      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>20</X>
+      <Y>2150</Y>
+      <W>1225</W>
+      <H>109</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>1227</W>
+      <H>153</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>((StockingProblemIndividual)this).rotations</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                        
+        
+        <Round>false</Round>
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>20</X>
+      <Y>2430</Y>
+      <W>802</W>
+      <H>261</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>`local java.util.ArrayList` items.get(36).computedRotations</Expression>
+      <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <ViewData>
+                                                  
+          
+          
+          
+          <Round>false</Round>
+                                                
+        
+        
+        
+        </ViewData>
+                                      
+      
+      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>5</X>
+      <Y>6700</Y>
+      <W>671</W>
+      <H>137</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[4].elementData</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                        
+        
+        <Round>false</Round>
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>430</X>
+      <Y>8130</Y>
+      <W>124</W>
+      <H>47</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>4</ScopeID>
+      <Expression>`local int` newRow</Expression>
       <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
     </Viewer>
   </Frame>
@@ -447,9 +502,155 @@
     <Bounds>
       <AutoSize>false</AutoSize>
       <X>5</X>
+      <Y>50</Y>
+      <W>1247</W>
+      <H>96</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>1245</W>
+      <H>136</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>5</ScopeID>
+      <Expression>`local algorithms.IntVectorIndividual` mainParent.genome</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <Round>false</Round>
+                                      
+      
+      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>460</X>
+      <Y>550</Y>
+      <W>184</W>
+      <H>55</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>5</ScopeID>
+      <Expression>`local int` cut2</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>20</X>
+      <Y>840</Y>
+      <W>1229</W>
+      <H>123</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_A_ToStringView0</Key>
+      <Order>4</Order>
+      <W>1227</W>
+      <H>163</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>5</ScopeID>
+      <Expression>`local int[][]` notUsed</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_A_ToStringView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>1100</X>
+      <Y>3260</Y>
+      <W>154</W>
+      <H>51</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>`local int` l</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>760</X>
+      <Y>6270</Y>
+      <W>439</W>
+      <H>139</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>`local int[][]` rotation</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_A_ToStringView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>60</X>
+      <Y>7320</Y>
+      <W>549</W>
+      <H>123</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>2</ScopeID>
+      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind).rotations</Expression>
+      <Indices>pos1 + length/2</Indices>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                
+        <Round>false</Round>
+              
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>5</X>
+      <Y>3050</Y>
+      <W>1223</W>
+      <H>92</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>1225</W>
+      <H>136</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>((StockingProblemIndividual)this).genome</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                        
+        
+        <Round>false</Round>
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>5</X>
       <Y>5530</Y>
-      <W>1241</W>
-      <H>135</H>
+      <W>1243</W>
+      <H>137</H>
     </Bounds>
     <PanelSize>
       <Key>jgrasp_viewers._X_A_PresentationView0</Key>
@@ -464,13 +665,479 @@
       <H>96</H>
     </PanelSize>
     <Viewer>
-      <ScopeID>5</ScopeID>
+      <ScopeID>8</ScopeID>
       <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[2].elementData</Expression>
       <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
       <ViewerData>
-                
+                        
+        
         <Round>false</Round>
-              
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>5</X>
+      <Y>6140</Y>
+      <W>671</W>
+      <H>137</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[0].elementData</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                        
+        
+        <Round>false</Round>
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>1080</X>
+      <Y>8390</Y>
+      <W>184</W>
+      <H>55</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>7</ScopeID>
+      <Expression>`local int` size</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>20</X>
+      <Y>990</Y>
+      <W>795</W>
+      <H>257</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers.java__lang__Object_LinkedView0</Key>
+      <Order>4</Order>
+      <W>797</W>
+      <H>301</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>`local stockingproblem.Item` item_to_place.computedRotations</Expression>
+      <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
+      <ViewerData>
+                        
+        
+        <ViewData>
+                              
+          
+          <Round>false</Round>
+                            
+        
+        </ViewData>
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>5</X>
+      <Y>150</Y>
+      <W>1247</W>
+      <H>96</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>1245</W>
+      <H>136</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>5</ScopeID>
+      <Expression>`local algorithms.IntVectorIndividual` mainParent.rotations</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <Round>false</Round>
+                                      
+      
+      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>5</X>
+      <Y>6840</Y>
+      <W>671</W>
+      <H>137</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[5].elementData</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                        
+        
+        <Round>false</Round>
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>580</X>
+      <Y>4270</Y>
+      <W>343</W>
+      <H>106</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>9</ScopeID>
+      <Expression>((RecombinationPartialMapped)this).segment1</Expression>
+      <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <ViewData>
+                                                  
+          
+          
+          
+          <Round>false</Round>
+                                                
+        
+        
+        
+        </ViewData>
+                                      
+      
+      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>20</X>
+      <Y>1390</Y>
+      <W>1229</W>
+      <H>96</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>1227</W>
+      <H>136</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>7</ScopeID>
+      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind2).genome</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <Round>false</Round>
+                                      
+      
+      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>210</X>
+      <Y>3960</Y>
+      <W>839</W>
+      <H>159</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers.java__lang__Object_LinkedView0</Key>
+      <Order>4</Order>
+      <W>837</W>
+      <H>199</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>2</ScopeID>
+      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind).rotations</Expression>
+      <Indices>pos1 + i#pos2 - i</Indices>
+      <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <ViewData>
+                                                  
+          
+          
+          
+          <Round>false</Round>
+                                                
+        
+        
+        
+        </ViewData>
+                                      
+      
+      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>5</X>
+      <Y>6560</Y>
+      <W>671</W>
+      <H>137</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[3].elementData</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                        
+        
+        <Round>false</Round>
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>5</X>
+      <Y>5670</Y>
+      <W>1243</W>
+      <H>137</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>1245</W>
+      <H>181</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>8</ScopeID>
+      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[3].elementData</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                        
+        
+        <Round>false</Round>
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>140</X>
+      <Y>4180</Y>
+      <W>184</W>
+      <H>55</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>9</ScopeID>
+      <Expression>`local int` cutPoint2</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>5</X>
+      <Y>3140</Y>
+      <W>1233</W>
+      <H>92</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>1235</W>
+      <H>136</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>((StockingProblemIndividual)this).rotations</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                        
+        
+        <Round>false</Round>
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>20</X>
+      <Y>5040</Y>
+      <W>439</W>
+      <H>139</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>8</ScopeID>
+      <Expression>`local int[][]` rotation</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_A_ToStringView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>10</X>
+      <Y>3610</Y>
+      <W>809</W>
+      <H>96</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>807</W>
+      <H>136</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>6</ScopeID>
+      <Expression>((StockingProblemIndividual)`local ga.Population` populationAux.individuals.get(1)).genome</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <Round>false</Round>
+                                      
+      
+      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>140</X>
+      <Y>1660</Y>
+      <W>184</W>
+      <H>55</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>5</ScopeID>
+      <Expression>`local int` cut2</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>5</X>
+      <Y>260</Y>
+      <W>1247</W>
+      <H>96</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>1245</W>
+      <H>136</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>5</ScopeID>
+      <Expression>`local algorithms.IntVectorIndividual` secondParent.genome</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <Round>false</Round>
+                                      
+      
+      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>820</X>
+      <Y>990</Y>
+      <W>154</W>
+      <H>51</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>`local int` i</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>10</X>
+      <Y>3240</Y>
+      <W>809</W>
+      <H>96</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>807</W>
+      <H>136</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>6</ScopeID>
+      <Expression>((StockingProblemIndividual)`local ga.Population` populationAux.individuals.get(0)).genome</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <Round>false</Round>
+                                      
+      
+      
+      
       </ViewerData>
     </Viewer>
   </Frame>
@@ -479,8 +1146,8 @@
       <AutoSize>false</AutoSize>
       <X>210</X>
       <Y>3780</Y>
-      <W>847</W>
-      <H>157</H>
+      <W>849</W>
+      <H>159</H>
     </Bounds>
     <PanelSize>
       <Key>jgrasp_viewers.java__lang__Object_LinkedView0</Key>
@@ -494,67 +1161,23 @@
       <Indices>pos1 + i#pos2 - i</Indices>
       <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
       <ViewerData>
-                                
+                                        
+        
         
         
         <ViewData>
-                                        
+                                                  
           
-          
-          <Round>false</Round>
-                                      
-        
-        
-        </ViewData>
-                              
-      
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>140</X>
-      <Y>2990</Y>
-      <W>124</W>
-      <H>47</H>
-    </Bounds>
-    <LabelLoc>
-      <WO>false</WO>
-    </LabelLoc>
-    <Viewer>
-      <ScopeID>2</ScopeID>
-      <Expression>pos2 - i</Expression>
-      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>580</X>
-      <Y>4270</Y>
-      <W>341</W>
-      <H>104</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>6</ScopeID>
-      <Expression>((RecombinationPartialMapped)this).segment1</Expression>
-      <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <ViewData>
-                                        
           
           
           <Round>false</Round>
-                                      
+                                                
+        
         
         
         </ViewData>
-                              
+                                      
+      
       
       
       </ViewerData>
@@ -564,9 +1187,46 @@
     <Bounds>
       <AutoSize>false</AutoSize>
       <X>20</X>
+      <Y>680</Y>
+      <W>1229</W>
+      <H>153</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_A_ToStringView0</Key>
+      <Order>4</Order>
+      <W>1227</W>
+      <H>193</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>5</ScopeID>
+      <Expression>`local int[][]` child</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_A_ToStringView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>20</X>
+      <Y>4180</Y>
+      <W>184</W>
+      <H>55</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>9</ScopeID>
+      <Expression>`local int` cutPoint1</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>20</X>
       <Y>1720</Y>
-      <W>1237</W>
-      <H>111</H>
+      <W>1239</W>
+      <H>113</H>
     </Bounds>
     <PanelSize>
       <Key>jgrasp_viewers._X_A_A_ToStringView0</Key>
@@ -583,24 +1243,279 @@
   <Frame>
     <Bounds>
       <AutoSize>false</AutoSize>
-      <X>50</X>
-      <Y>7660</Y>
-      <W>791</W>
-      <H>135</H>
+      <X>20</X>
+      <Y>2030</Y>
+      <W>1235</W>
+      <H>99</H>
     </Bounds>
     <PanelSize>
       <Key>jgrasp_viewers._X_A_PresentationView0</Key>
       <Order>4</Order>
-      <W>797</W>
-      <H>183</H>
+      <W>1237</W>
+      <H>143</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>((StockingProblemIndividual)this).genome</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                        
+        
+        <Round>false</Round>
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>640</X>
+      <Y>550</Y>
+      <W>184</W>
+      <H>55</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>5</ScopeID>
+      <Expression>`local int` index</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>20</X>
+      <Y>1850</Y>
+      <W>1229</W>
+      <H>103</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_ToStringView0</Key>
+      <Order>4</Order>
+      <W>1227</W>
+      <H>143</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>5</ScopeID>
+      <Expression>`local int[][]` notUsed</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_ToStringView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>500</X>
+      <Y>5030</Y>
+      <W>154</W>
+      <H>51</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>8</ScopeID>
+      <Expression>`local int` i</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>10</X>
+      <Y>3510</Y>
+      <W>809</W>
+      <H>96</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>807</W>
+      <H>136</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>6</ScopeID>
+      <Expression>((StockingProblemIndividual)`local ga.Population` populationAux.individuals.get(1)).genome</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <Round>false</Round>
+                                      
+      
+      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>430</X>
+      <Y>7990</Y>
+      <W>124</W>
+      <H>47</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>4</ScopeID>
+      <Expression>`local int` oldCol</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>20</X>
+      <Y>2280</Y>
+      <W>469</W>
+      <H>133</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_A_ToStringView0</Key>
+      <Order>4</Order>
+      <W>467</W>
+      <H>173</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>`local java.util.ArrayList` items.get(36).matrix</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_A_ToStringView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>10</X>
+      <Y>2990</Y>
+      <W>139</W>
+      <H>49</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>2</ScopeID>
+      <Expression>pos1 + i</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>740</X>
+      <Y>6450</Y>
+      <W>154</W>
+      <H>51</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>`local int` j</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>5</X>
+      <Y>5950</Y>
+      <W>1243</W>
+      <H>137</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>1245</W>
+      <H>181</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>8</ScopeID>
+      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[5].elementData</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                        
+        
+        <Round>false</Round>
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>140</X>
+      <Y>2990</Y>
+      <W>139</W>
+      <H>49</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>2</ScopeID>
+      <Expression>pos2 - i</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>5</X>
+      <Y>6280</Y>
+      <W>671</W>
+      <H>137</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>3</ScopeID>
+      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[1].elementData</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                        
+        
+        <Round>false</Round>
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>10</X>
+      <Y>2770</Y>
+      <W>1229</W>
+      <H>96</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>1227</W>
+      <H>136</H>
     </PanelSize>
     <Viewer>
       <ScopeID>2</ScopeID>
-      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind).rotations</Expression>
-      <Indices>pos1 + i#pos2 - i</Indices>
+      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind).genome</Expression>
       <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
       <ViewerData>
+                                        
+        
+        
+        
         <Round>false</Round>
+                                      
+      
+      
+      
       </ViewerData>
     </Viewer>
   </Frame>
@@ -609,63 +1524,165 @@
       <AutoSize>true</AutoSize>
       <X>360</X>
       <Y>5100</Y>
-      <W>139</W>
-      <H>49</H>
+      <W>154</W>
+      <H>51</H>
     </Bounds>
     <LabelLoc>
       <WO>false</WO>
     </LabelLoc>
     <Viewer>
-      <ScopeID>5</ScopeID>
+      <ScopeID>8</ScopeID>
       <Expression>`local int` k</Expression>
       <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
     </Viewer>
   </Frame>
   <Frame>
     <Bounds>
-      <AutoSize>false</AutoSize>
+      <AutoSize>true</AutoSize>
       <X>20</X>
-      <Y>840</Y>
-      <W>1227</W>
-      <H>121</H>
+      <Y>4380</Y>
+      <W>543</W>
+      <H>106</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>9</ScopeID>
+      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind2).genome</Expression>
+      <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <ViewData>
+                                                  
+          
+          
+          
+          <Round>false</Round>
+                                                
+        
+        
+        
+        </ViewData>
+                                      
+      
+      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>500</X>
+      <Y>5100</Y>
+      <W>154</W>
+      <H>51</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>8</ScopeID>
+      <Expression>`local int` j</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>430</X>
+      <Y>8210</Y>
+      <W>124</W>
+      <H>47</H>
+    </Bounds>
+    <LabelLoc>
+      <WO>false</WO>
+    </LabelLoc>
+    <Viewer>
+      <ScopeID>4</ScopeID>
+      <Expression>`local int` newCol</Expression>
+      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>90</X>
+      <Y>7940</Y>
+      <W>241</W>
+      <H>165</H>
     </Bounds>
     <PanelSize>
       <Key>jgrasp_viewers._X_A_A_ToStringView0</Key>
       <Order>4</Order>
-      <W>1227</W>
-      <H>163</H>
+      <W>247</W>
+      <H>213</H>
     </PanelSize>
     <Viewer>
-      <ScopeID>1</ScopeID>
-      <Expression>`local int[][]` notUsed</Expression>
+      <ScopeID>4</ScopeID>
+      <Expression>`local int[][]` oldMatrix</Expression>
       <ViewerClass>jgrasp_viewers._X_A_A_ToStringView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>true</AutoSize>
+      <X>580</X>
+      <Y>4380</Y>
+      <W>343</W>
+      <H>106</H>
+    </Bounds>
+    <Viewer>
+      <ScopeID>9</ScopeID>
+      <Expression>((RecombinationPartialMapped)this).segment2</Expression>
+      <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <ViewData>
+                                                  
+          
+          
+          
+          <Round>false</Round>
+                                                
+        
+        
+        
+        </ViewData>
+                                      
+      
+      
+      
+      </ViewerData>
     </Viewer>
   </Frame>
   <Frame>
     <Bounds>
       <AutoSize>false</AutoSize>
       <X>5</X>
-      <Y>260</Y>
-      <W>1245</W>
-      <H>94</H>
+      <Y>5810</Y>
+      <W>1243</W>
+      <H>137</H>
     </Bounds>
     <PanelSize>
       <Key>jgrasp_viewers._X_A_PresentationView0</Key>
       <Order>4</Order>
       <W>1245</W>
-      <H>136</H>
+      <H>181</H>
     </PanelSize>
     <Viewer>
-      <ScopeID>1</ScopeID>
-      <Expression>`local algorithms.IntVectorIndividual` secondParent.genome</Expression>
+      <ScopeID>8</ScopeID>
+      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[4].elementData</Expression>
       <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
       <ViewerData>
-                                
-        
+                        
         
         <Round>false</Round>
-                              
-      
+                      
       
       </ViewerData>
     </Viewer>
@@ -675,56 +1692,31 @@
       <AutoSize>true</AutoSize>
       <X>20</X>
       <Y>4270</Y>
-      <W>541</W>
-      <H>104</H>
+      <W>543</W>
+      <H>106</H>
     </Bounds>
     <Viewer>
-      <ScopeID>6</ScopeID>
+      <ScopeID>9</ScopeID>
       <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind1).genome</Expression>
       <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
       <ViewerData>
-                                
+                                        
+        
         
         
         <ViewData>
-                                        
+                                                  
+          
           
           
           <Round>false</Round>
-                                      
+                                                
+        
         
         
         </ViewData>
-                              
+                                      
       
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>5</X>
-      <Y>380</Y>
-      <W>1245</W>
-      <H>94</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1245</W>
-      <H>136</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>1</ScopeID>
-      <Expression>`local algorithms.IntVectorIndividual` secondParent.rotations</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <Round>false</Round>
-                              
       
       
       </ViewerData>
@@ -735,234 +1727,150 @@
       <AutoSize>true</AutoSize>
       <X>20</X>
       <Y>1660</Y>
-      <W>169</W>
-      <H>53</H>
+      <W>184</W>
+      <H>55</H>
     </Bounds>
     <LabelLoc>
       <WO>false</WO>
     </LabelLoc>
     <Viewer>
-      <ScopeID>1</ScopeID>
+      <ScopeID>5</ScopeID>
       <Expression>`local int` cut1</Expression>
       <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
     </Viewer>
   </Frame>
   <Frame>
     <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>20</X>
-      <Y>4380</Y>
-      <W>541</W>
-      <H>104</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>6</ScopeID>
-      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind2).genome</Expression>
-      <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <ViewData>
-                                        
-          
-          
-          <Round>false</Round>
-                                      
-        
-        
-        </ViewData>
-                              
-      
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
+      <AutoSize>false</AutoSize>
       <X>5</X>
-      <Y>6140</Y>
-      <W>669</W>
-      <H>135</H>
+      <Y>5250</Y>
+      <W>1240</W>
+      <H>137</H>
     </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>1242</W>
+      <H>181</H>
+    </PanelSize>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_PresentationToStringView0</Key>
+      <Order>3</Order>
+      <W>597</W>
+      <H>96</H>
+    </PanelSize>
     <Viewer>
-      <ScopeID>0</ScopeID>
+      <ScopeID>8</ScopeID>
       <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[0].elementData</Expression>
       <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
       <ViewerData>
-                
+                        
+        
         <Round>false</Round>
-              
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>5</X>
+      <Y>5390</Y>
+      <W>1243</W>
+      <H>137</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>1245</W>
+      <H>181</H>
+    </PanelSize>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_PresentationToStringView0</Key>
+      <Order>3</Order>
+      <W>595</W>
+      <H>96</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>8</ScopeID>
+      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[1].elementData</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                        
+        
+        <Round>false</Round>
+                      
+      
+      </ViewerData>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>110</X>
+      <Y>8140</Y>
+      <W>271</W>
+      <H>175</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_A_ToStringView0</Key>
+      <Order>4</Order>
+      <W>277</W>
+      <H>223</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>4</ScopeID>
+      <Expression>`local int[][]` rotated</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_A_ToStringView</ViewerClass>
+    </Viewer>
+  </Frame>
+  <Frame>
+    <Bounds>
+      <AutoSize>false</AutoSize>
+      <X>5</X>
+      <Y>380</Y>
+      <W>1247</W>
+      <H>96</H>
+    </Bounds>
+    <PanelSize>
+      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
+      <Order>4</Order>
+      <W>1245</W>
+      <H>136</H>
+    </PanelSize>
+    <Viewer>
+      <ScopeID>5</ScopeID>
+      <Expression>`local algorithms.IntVectorIndividual` secondParent.rotations</Expression>
+      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
+      <ViewerData>
+                                        
+        
+        
+        
+        <Round>false</Round>
+                                      
+      
+      
+      
       </ViewerData>
     </Viewer>
   </Frame>
   <Frame>
     <Bounds>
       <AutoSize>true</AutoSize>
-      <X>20</X>
-      <Y>4180</Y>
-      <W>169</W>
-      <H>53</H>
+      <X>940</X>
+      <Y>990</Y>
+      <W>154</W>
+      <H>51</H>
     </Bounds>
     <LabelLoc>
       <WO>false</WO>
     </LabelLoc>
     <Viewer>
-      <ScopeID>6</ScopeID>
-      <Expression>`local int` cutPoint1</Expression>
+      <ScopeID>3</ScopeID>
+      <Expression>`local int` j</Expression>
       <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>20</X>
-      <Y>680</Y>
-      <W>1227</W>
-      <H>151</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_A_ToStringView0</Key>
-      <Order>4</Order>
-      <W>1227</W>
-      <H>193</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>1</ScopeID>
-      <Expression>`local int[][]` child</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_A_ToStringView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>20</X>
-      <Y>1390</Y>
-      <W>1227</W>
-      <H>94</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1227</W>
-      <H>136</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>7</ScopeID>
-      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind2).genome</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <Round>false</Round>
-                              
-      
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>60</X>
-      <Y>7320</Y>
-      <W>547</W>
-      <H>121</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>2</ScopeID>
-      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind).rotations</Expression>
-      <Indices>pos1 + length/2</Indices>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-        <Round>false</Round>
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>20</X>
-      <Y>2430</Y>
-      <W>800</W>
-      <H>259</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>`local java.util.ArrayList` items.get(36).computedRotations</Expression>
-      <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <ViewData>
-                                        
-          
-          
-          <Round>false</Round>
-                                      
-        
-        
-        </ViewData>
-                              
-      
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>20</X>
-      <Y>2280</Y>
-      <W>467</W>
-      <H>131</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_A_ToStringView0</Key>
-      <Order>4</Order>
-      <W>467</W>
-      <H>173</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>`local java.util.ArrayList` items.get(36).matrix</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_A_ToStringView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>20</X>
-      <Y>5040</Y>
-      <W>437</W>
-      <H>137</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>5</ScopeID>
-      <Expression>`local int[][]` rotation</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_A_ToStringView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>5</X>
-      <Y>6280</Y>
-      <W>669</W>
-      <H>135</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[1].elementData</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                
-        <Round>false</Round>
-              
-      </ViewerData>
     </Viewer>
   </Frame>
   <Frame>
@@ -970,8 +1878,8 @@
       <AutoSize>false</AutoSize>
       <X>20</X>
       <Y>1530</Y>
-      <W>1237</W>
-      <H>131</H>
+      <W>1239</W>
+      <H>133</H>
     </Bounds>
     <PanelSize>
       <Key>jgrasp_viewers._X_A_A_ToStringView0</Key>
@@ -989,694 +1897,6 @@
       <ScopeID>7</ScopeID>
       <Expression>`local int[][]` child1</Expression>
       <ViewerClass>jgrasp_viewers._X_A_A_ToStringView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>5</X>
-      <Y>6420</Y>
-      <W>669</W>
-      <H>135</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[2].elementData</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                
-        <Round>false</Round>
-              
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>5</X>
-      <Y>5950</Y>
-      <W>1241</W>
-      <H>135</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1245</W>
-      <H>181</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>5</ScopeID>
-      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[5].elementData</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                
-        <Round>false</Round>
-              
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>340</X>
-      <Y>550</Y>
-      <W>169</W>
-      <H>53</H>
-    </Bounds>
-    <LabelLoc>
-      <WO>false</WO>
-    </LabelLoc>
-    <Viewer>
-      <ScopeID>1</ScopeID>
-      <Expression>`local int` cut1</Expression>
-      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>960</X>
-      <Y>6450</Y>
-      <W>139</W>
-      <H>49</H>
-    </Bounds>
-    <LabelLoc>
-      <WO>false</WO>
-    </LabelLoc>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>`local int` i</Expression>
-      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>20</X>
-      <Y>1270</Y>
-      <W>1227</W>
-      <H>94</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1227</W>
-      <H>136</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>7</ScopeID>
-      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind1).genome</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <Round>false</Round>
-                              
-      
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>20</X>
-      <Y>990</Y>
-      <W>793</W>
-      <H>255</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers.java__lang__Object_LinkedView0</Key>
-      <Order>4</Order>
-      <W>797</W>
-      <H>301</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>`local stockingproblem.Item` item_to_place.computedRotations</Expression>
-      <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
-      <ViewerData>
-                
-        <ViewData>
-                    
-          <Round>false</Round>
-                  
-        </ViewData>
-              
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>460</X>
-      <Y>550</Y>
-      <W>169</W>
-      <H>53</H>
-    </Bounds>
-    <LabelLoc>
-      <WO>false</WO>
-    </LabelLoc>
-    <Viewer>
-      <ScopeID>1</ScopeID>
-      <Expression>`local int` cut2</Expression>
-      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>20</X>
-      <Y>4800</Y>
-      <W>798</W>
-      <H>185</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>8</ScopeID>
-      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind).genome</Expression>
-      <Indices>i#i + 1#cut1 + 1#cut2</Indices>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                        
-        
-        <Round>false</Round>
-                      
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>10</X>
-      <Y>3340</Y>
-      <W>807</W>
-      <H>94</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>807</W>
-      <H>136</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>4</ScopeID>
-      <Expression>((StockingProblemIndividual)`local ga.Population` populationAux.individuals.get(0)).rotations</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <Round>false</Round>
-                              
-      
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>10</X>
-      <Y>3510</Y>
-      <W>807</W>
-      <H>94</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>807</W>
-      <H>136</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>4</ScopeID>
-      <Expression>((StockingProblemIndividual)`local ga.Population` populationAux.individuals.get(1)).genome</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <Round>false</Round>
-                              
-      
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>10</X>
-      <Y>2870</Y>
-      <W>1227</W>
-      <H>94</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1227</W>
-      <H>136</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>2</ScopeID>
-      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind).rotations</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <Round>false</Round>
-                              
-      
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>210</X>
-      <Y>3960</Y>
-      <W>837</W>
-      <H>157</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers.java__lang__Object_LinkedView0</Key>
-      <Order>4</Order>
-      <W>837</W>
-      <H>199</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>2</ScopeID>
-      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind).rotations</Expression>
-      <Indices>pos1 + i#pos2 - i</Indices>
-      <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <ViewData>
-                                        
-          
-          
-          <Round>false</Round>
-                                      
-        
-        
-        </ViewData>
-                              
-      
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>5</X>
-      <Y>6840</Y>
-      <W>669</W>
-      <H>135</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[5].elementData</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                
-        <Round>false</Round>
-              
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>5</X>
-      <Y>150</Y>
-      <W>1245</W>
-      <H>94</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1245</W>
-      <H>136</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>1</ScopeID>
-      <Expression>`local algorithms.IntVectorIndividual` mainParent.rotations</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <Round>false</Round>
-                              
-      
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>5</X>
-      <Y>6560</Y>
-      <W>669</W>
-      <H>135</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[3].elementData</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                
-        <Round>false</Round>
-              
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>5</X>
-      <Y>6700</Y>
-      <W>669</W>
-      <H>135</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[4].elementData</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                
-        <Round>false</Round>
-              
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>500</X>
-      <Y>5100</Y>
-      <W>139</W>
-      <H>49</H>
-    </Bounds>
-    <LabelLoc>
-      <WO>false</WO>
-    </LabelLoc>
-    <Viewer>
-      <ScopeID>5</ScopeID>
-      <Expression>`local int` j</Expression>
-      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>5</X>
-      <Y>5390</Y>
-      <W>1241</W>
-      <H>135</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1245</W>
-      <H>181</H>
-    </PanelSize>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_PresentationToStringView0</Key>
-      <Order>3</Order>
-      <W>595</W>
-      <H>96</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>5</ScopeID>
-      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[1].elementData</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                
-        <Round>false</Round>
-              
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>5</X>
-      <Y>5810</Y>
-      <W>1241</W>
-      <H>135</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1245</W>
-      <H>181</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>5</ScopeID>
-      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[4].elementData</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                
-        <Round>false</Round>
-              
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>10</X>
-      <Y>3610</Y>
-      <W>807</W>
-      <H>94</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>807</W>
-      <H>136</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>4</ScopeID>
-      <Expression>((StockingProblemIndividual)`local ga.Population` populationAux.individuals.get(1)).genome</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <Round>false</Round>
-                              
-      
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>20</X>
-      <Y>2150</Y>
-      <W>1223</W>
-      <H>107</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1227</W>
-      <H>153</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>((StockingProblemIndividual)this).rotations</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                
-        <Round>false</Round>
-              
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>5</X>
-      <Y>5250</Y>
-      <W>1238</W>
-      <H>135</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1242</W>
-      <H>181</H>
-    </PanelSize>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_PresentationToStringView0</Key>
-      <Order>3</Order>
-      <W>597</W>
-      <H>96</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>5</ScopeID>
-      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[0].elementData</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                
-        <Round>false</Round>
-              
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>820</X>
-      <Y>990</Y>
-      <W>139</W>
-      <H>49</H>
-    </Bounds>
-    <LabelLoc>
-      <WO>false</WO>
-    </LabelLoc>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>`local int` i</Expression>
-      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>10</X>
-      <Y>2770</Y>
-      <W>1227</W>
-      <H>94</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1227</W>
-      <H>136</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>2</ScopeID>
-      <Expression>((StockingProblemIndividual)`local algorithms.IntVectorIndividual` ind).genome</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <Round>false</Round>
-                              
-      
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>580</X>
-      <Y>4380</Y>
-      <W>341</W>
-      <H>104</H>
-    </Bounds>
-    <Viewer>
-      <ScopeID>6</ScopeID>
-      <Expression>((RecombinationPartialMapped)this).segment2</Expression>
-      <ViewerClass>jgrasp_viewers.java__lang__Object_LinkedView</ViewerClass>
-      <ViewerData>
-                                
-        
-        
-        <ViewData>
-                                        
-          
-          
-          <Round>false</Round>
-                                      
-        
-        
-        </ViewData>
-                              
-      
-      
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>5</X>
-      <Y>5670</Y>
-      <W>1241</W>
-      <H>135</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1245</W>
-      <H>181</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>5</ScopeID>
-      <Expression>((java.util.ArrayList[])((StockingProblemIndividual)this).material)[3].elementData</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                
-        <Round>false</Round>
-              
-      </ViewerData>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>true</AutoSize>
-      <X>1070</X>
-      <Y>7790</Y>
-      <W>169</W>
-      <H>53</H>
-    </Bounds>
-    <LabelLoc>
-      <WO>false</WO>
-    </LabelLoc>
-    <Viewer>
-      <ScopeID>7</ScopeID>
-      <Expression>`local int` size</Expression>
-      <ViewerClass>jgrasp_viewers._X_ElementView</ViewerClass>
-    </Viewer>
-  </Frame>
-  <Frame>
-    <Bounds>
-      <AutoSize>false</AutoSize>
-      <X>5</X>
-      <Y>3140</Y>
-      <W>1231</W>
-      <H>90</H>
-    </Bounds>
-    <PanelSize>
-      <Key>jgrasp_viewers._X_A_PresentationView0</Key>
-      <Order>4</Order>
-      <W>1235</W>
-      <H>136</H>
-    </PanelSize>
-    <Viewer>
-      <ScopeID>0</ScopeID>
-      <Expression>((StockingProblemIndividual)this).rotations</Expression>
-      <ViewerClass>jgrasp_viewers._X_A_PresentationView</ViewerClass>
-      <ViewerData>
-                
-        <Round>false</Round>
-              
-      </ViewerData>
     </Viewer>
   </Frame>
   <Size>
